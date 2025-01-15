@@ -2,7 +2,8 @@ import { View, Text, Alert, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { styles } from '../Theme/appTheme'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../Config/Config'
+import { auth, db } from '../Config/Config'
+import { ref, set } from 'firebase/database'
 
 export default function RegisterScreen() {
   const [correo, setcorreo] = useState('')
@@ -32,6 +33,7 @@ export default function RegisterScreen() {
       return
     }
 
+    //Auth
     createUserWithEmailAndPassword(auth, correo, contrasenia)
       .then((userCredential) => {
         const user = userCredential.user
@@ -68,6 +70,17 @@ export default function RegisterScreen() {
         }
         Alert.alert(titulo, mensaje)
       })
+      set(ref(db, 'usuarios/' + correo), {
+        usuario:usuario,
+        celular:celular
+      })
+      .then(() => {
+        console.log('Datos guardados correctamente en la base de datos');
+      })
+      .catch((error) => {
+        console.error('Error al guardar los datos: ', error);
+      });
+      limpiar()
   }
 
   function limpiar() {
