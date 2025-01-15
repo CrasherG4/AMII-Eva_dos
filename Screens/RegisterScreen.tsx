@@ -70,9 +70,9 @@ export default function RegisterScreen() {
         }
         Alert.alert(titulo, mensaje)
       })
-      set(ref(db, 'usuarios/' + correo), {
+      set(ref(db, 'usuarios/' + celular), {
         usuario:usuario,
-        celular:celular
+        correo:correo
       })
       .then(() => {
         console.log('Datos guardados correctamente en la base de datos');
