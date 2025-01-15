@@ -1,0 +1,44 @@
+import { StyleSheet } from "react-native";
+
+export const styles = StyleSheet.create({
+  contenedorAll:{
+    flex:1,
+    padding:20,
+    gap:10
+  },
+  h1:{
+    textAlign:'center',
+    fontSize:18,
+    fontWeight:'600'
+  },
+  imgLogReg:{
+    width:250,
+    height:250,
+    borderRadius:100,
+    alignSelf:'center'
+  },
+  wbtnLR:{
+    borderRadius:6,
+    borderColor:'#7d7d7d',
+    borderWidth:2,
+    justifyContent:'center',
+    height:40
+  },
+  wbtnLRtxt:{
+    textAlign:'center',
+    fontSize:14,
+    fontWeight:'400'
+  },
+  input:{
+    borderRadius:4,
+    borderColor:'#7d7d7d',
+    borderWidth:2,
+    justifyContent:'center'
+  },
+  btnRegLog:{
+    backgroundColor:'#0065a3',
+    width:'100%',
+    height:40,
+    justifyContent:'center'
+  }
+})
